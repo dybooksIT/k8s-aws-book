@@ -7,19 +7,19 @@ Parameters:
 
   TargetRegion:
     Type: String
-    Default: ap-northeast-1
+    Default: ap-northeast-2
 
   AvailabilityZone1:
     Type: String
-    Default: ap-northeast-1a
+    Default: ap-northeast-2a
 
   AvailabilityZone2:
     Type: String
-    Default: ap-northeast-1c
+    Default: ap-northeast-2b
 
   AvailabilityZone3:
     Type: String
-    Default: ap-northeast-1d
+    Default: ap-northeast-2c
 
   VpcBlock:
     Type: String
