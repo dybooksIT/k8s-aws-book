@@ -85,48 +85,48 @@ Resources:
       GroupDescription: Security Group for RDS
       VpcId: !Ref EksWorkVPC
 
-  RdsIngressPostgreSQLWorker1:
+  RdsIngressMySQLWorker1:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !Ref RdsSecurityGroup
       CidrIp: !Ref WorkerSubnet1Block
       IpProtocol: tcp
-      FromPort: 5432 # mysql 3306 mariadb 3396 postgresql 5432
-      ToPort: 5432
+      FromPort: 3306 # mysql 3306 mariadb 3396 postgresql 5432
+      ToPort: 3306
 
-  RdsIngressPostgreSQLWorker2:
+  RdsIngressMySQLWorker2:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !Ref RdsSecurityGroup
       CidrIp: !Ref WorkerSubnet2Block
       IpProtocol: tcp
-      FromPort: 5432
-      ToPort: 5432
+      FromPort: 3306
+      ToPort: 3306
 
-  RdsIngressPostgreSQLWorker3:
+  RdsIngressMySQLWorker3:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !Ref RdsSecurityGroup
       CidrIp: !Ref WorkerSubnet3Block
       IpProtocol: tcp
-      FromPort: 5432
-      ToPort: 5432
+      FromPort: 3306
+      ToPort: 3306
 
-  RdsIngressPostgreSQLOpe:
+  RdsIngressMySQLOpe:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !Ref RdsSecurityGroup
       CidrIp: !Ref OpeSubnetBlock
       IpProtocol: tcp
-      FromPort: 5432
-      ToPort: 5432
+      FromPort: 3306
+      ToPort: 3306
 
   EksWorkDB:
     Type: "AWS::RDS::DBInstance"
     Properties:
       DBInstanceIdentifier: eks-work-db
-      Engine: postgres  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#aws-properties-rds-database-instance-properties
-      EngineVersion: 11  # https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt
+      Engine: mysql  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#aws-properties-rds-database-instance-properties
+      EngineVersion: 5.7  # https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt
       DBInstanceClass: db.t2.micro
       AllocatedStorage: 30
       StorageType: gp2
@@ -185,8 +185,8 @@ Resources:
   EksWorkDBParameterGroup:
     Type: AWS::RDS::DBParameterGroup
     Properties:
-      Family: postgres11 # aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
-      Description: Parameter Group for PostgreSQL 11
+      Family: mysql5.7 # aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
+      Description: Parameter Group for MySQL 5.7
 
   OpeServerSubnet:
     Type: AWS::EC2::Subnet
@@ -207,14 +207,14 @@ Resources:
       GroupDescription: Security Group for Ope
       VpcId: !Ref EksWorkVPC
 
-  RdsIngressPostgreSQLFromOpe:
+  RdsIngressMySQLFromOpe:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !Ref RdsSecurityGroup
       SourceSecurityGroupId: !Ref OpeServerSecurityGroup
       IpProtocol: tcp
-      FromPort: 5432
-      ToPort: 5432
+      FromPort: 3306
+      ToPort: 3306
 
   OpeServerRole:
     Type: AWS::IAM::Role
