@@ -1,5 +1,5 @@
 FROM amazoncorretto:11
-LABEL maintainer="k8s-aws-book"
+LABEL maintainer="k8sbook"
 
 RUN yum install -y glibc-langpack-ko
 ENV LANG ko_KR.UTF8

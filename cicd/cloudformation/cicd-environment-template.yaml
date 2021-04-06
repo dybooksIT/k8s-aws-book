@@ -38,7 +38,7 @@ Parameters:
   # CICD 체험을 위해 사용하는 ECT 레지스트리
   ECRNameForSampleAP:
     Type: String
-    Default: "k8s-aws-book/backend-app"
+    Default: "k8sbook/backend-app"
     Description: ECR name used in this pipeline.
 
 Metadata: 
