@@ -32,21 +32,21 @@ public class LocationApiTest {
     public void testGetLocationListByRegion() {
         var regionEntity = new RegionEntity();
         regionEntity.setRegionId(1);
-        regionEntity.setRegionName("地域1");
+        regionEntity.setRegionName("지역 1");
 
         given(regionRepository.findById(1)).willReturn(Optional.of(regionEntity));
 
         var loc1 = new LocationEntity();
         loc1.setLocationId(1L);
-        loc1.setLocationName("地点1");
+        loc1.setLocationName("명소 1");
         loc1.setRegion(regionEntity);
-        loc1.setNote("地点1の詳細です。");
+        loc1.setNote("명소 1의 상세 정보입니다.");
 
         var loc2 = new LocationEntity();
         loc2.setLocationId(1L);
-        loc2.setLocationName("地点2");
+        loc2.setLocationName("명소 2");
         loc2.setRegion(regionEntity);
-        loc2.setNote("地点2の詳細です。");
+        loc2.setNote("명소 2의 상세 정보입니다.");
 
         var locationList = List.of(loc1, loc2);
         given(locationRepository.findByRegion(regionEntity)).willReturn(locationList);

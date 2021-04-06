@@ -9,7 +9,7 @@
       sm8
       md6
     >
-      <div class="display-2 font-weight-black">全国観光スポット情報</div>
+      <div class="display-2 font-weight-black">전국 관광지 명소 정보</div>
       <div
               v-for="region in $store.state.regions"
               :key="region.regionId">

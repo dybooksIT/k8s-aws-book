@@ -4,5 +4,5 @@ metadata:
   name: default-deny
 spec:
   podSelector:
-    # 全てのPodに適用する
+    # 모든 파드(Pod)에 적용
     matchLabels: {}

@@ -1,39 +1,39 @@
 -- REGION
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('北海道', current_timestamp);
+VALUES ('서울', current_timestamp);
 
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('東北', current_timestamp);
+VALUES ('강릉', current_timestamp);
 
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('関東', current_timestamp);
+VALUES ('대전', current_timestamp);
 
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('中部', current_timestamp);
+VALUES ('광주', current_timestamp);
 
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('近畿', current_timestamp);
+VALUES ('대구', current_timestamp);
 
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('中国', current_timestamp);
+VALUES ('부산', current_timestamp);
 
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('四国', current_timestamp);
+VALUES ('여수', current_timestamp);
 
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('九州', current_timestamp);
+VALUES ('안동', current_timestamp);
 
 INSERT INTO region (region_name, creation_timestamp)
-VALUES ('沖縄', current_timestamp);
+VALUES ('제주도', current_timestamp);
 
 -- LOCATION
 INSERT INTO location (location_name, region_id, note)
-VALUES ('美ら海水族館', (SELECT region_id FROM region WHERE region_name = '沖縄'),
-  '沖縄の代表的な水族館で、ジンベエザメをはじめ、様々な沖縄の海の生き物を見ることができます。');
+VALUES ('테디베어 뮤지엄', (SELECT region_id FROM region WHERE region_name = '제주도'),
+  '테디베어의 역사는 물론 예술, 세계여행 등의 테마를 제공하는 테마 뮤지엄 브랜드입니다.');
 
 INSERT INTO location (location_name, region_id, note)
-VALUES ('首里城', (SELECT region_id FROM region WHERE region_name = '沖縄'),
-  '琉球王朝の王城で、世界遺産の1つです。');
+VALUES ('성산 일출봉', (SELECT region_id FROM region WHERE region_name = '제주도'),
+  '유네스코 세계자연유산에 등재된 제주도의 랜드마크.');
 
 -- BATCH_PROCESSING
 INSERT INTO batch_processing (batch_name)

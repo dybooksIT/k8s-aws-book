@@ -28,12 +28,12 @@ public class RegionApiTest {
 
         var region1 = new RegionEntity();
         region1.setRegionId(1);
-        region1.setRegionName("地域1");
+        region1.setRegionName("지역 1");
         region1.setCreationTimestamp(LocalDateTime.now());
 
         var region2 = new RegionEntity();
         region2.setRegionId(2);
-        region2.setRegionName("地域2");
+        region2.setRegionName("지역 2");
         region2.setCreationTimestamp(LocalDateTime.now());
 
         var regionList = List.of(region1, region2);

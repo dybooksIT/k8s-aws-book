@@ -135,12 +135,12 @@ spec:
             - --stderrthreshold=info
             - --cloud-provider=aws
             - --skip-nodes-with-local-storage=false
-            # オートスケーリンググループ名を設定
+            # 오토스케일링 그룹 이름 설정
             - --nodes=2:5:<AUTOSCALING GROUP NAME>
           env:
             - name: AWS_REGION
-            # リージョンを指定
-              value: ap-northeast-1
+            # 리전을 지정
+              value: ap-northeast-2
           volumeMounts:
             - name: ssl-certs
               mountPath: /etc/ssl/certs/ca-certificates.crt

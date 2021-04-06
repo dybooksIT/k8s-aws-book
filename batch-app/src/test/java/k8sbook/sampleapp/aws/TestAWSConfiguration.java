@@ -17,7 +17,7 @@ public class TestAWSConfiguration {
     public AmazonS3 amazonS3() {
         return AmazonS3ClientBuilder
                 .standard()
-                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8001", "ap-northeast-1"))
+                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8001", "ap-northeast-2"))
                 .withCredentials(new AWSStaticCredentialsProvider(new AnonymousAWSCredentials()))
                 .withPathStyleAccessEnabled(true)
                 .build();

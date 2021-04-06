@@ -31,7 +31,7 @@ public class LocationRepositoryTest {
     @Test
     @Tag(("DBRequired"))
     public void testFindByRegion() {
-        var region = regionRepository.findByRegionName("地域1").get();
+        var region = regionRepository.findByRegionName("지역 1").get();
         var result = locationRepository.findByRegion(region);
         assertThat(result).hasSize(4);
     }
@@ -43,17 +43,17 @@ public class LocationRepositoryTest {
                 deleteAllFrom("region"),
                 insertInto("region")
                         .columns("region_id", "region_name", "creation_timestamp")
-                        .values(1, "地域1", LocalDateTime.now())
-                        .values(2, "地域2", LocalDateTime.now())
-                        .values(3, "地域3", LocalDateTime.now())
-                        .values(4, "地域4", LocalDateTime.now())
+                        .values(1, "지역 1", LocalDateTime.now())
+                        .values(2, "지역 2", LocalDateTime.now())
+                        .values(3, "지역 3", LocalDateTime.now())
+                        .values(4, "지역 4", LocalDateTime.now())
                         .build(),
                 insertInto("location")
                         .columns("location_id", "location_name", "region_id", "note")
-                        .values(1, "地点1", 1, "地点1の詳細です。")
-                        .values(2, "地点2", 1, "地点2の詳細です。")
-                        .values(3, "地点3", 1, "地点3の詳細です。")
-                        .values(4, "地点4", 1, "地点4の詳細です。")
+                        .values(1, "명소 1", 1, "명소 1의 상세 정보입니다.")
+                        .values(2, "명소 2", 1, "명소 2의 상세 정보입니다.")
+                        .values(3, "명소 3", 1, "명소 3의 상세 정보입니다.")
+                        .values(4, "명소 4", 1, "명소 4의 상세 정보입니다.")
                         .build()
         );
         var dbSetup = new DbSetup(new DataSourceDestination(dataSource), operations);

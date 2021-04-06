@@ -3,7 +3,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
   TargetRegion:
     Type: String
-    Default: ap-northeast-1
+    Default: ap-northeast-2
 
   BucketBaseName:
     Type: String

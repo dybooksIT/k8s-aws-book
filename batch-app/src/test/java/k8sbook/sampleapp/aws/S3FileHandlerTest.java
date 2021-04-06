@@ -55,7 +55,7 @@ public class S3FileHandlerTest {
     }
 
     /**
-     * テスト時にバッチアプリケーションの処理（BatchApplication#run）が動かないようにする。
+     * 테스트할 때 배치 애플리케이션 처리(Batch Application#run)가 고정되도록 한다.
      */
     @BeforeAll
     public static void prepareBatchToRun() {
@@ -75,7 +75,7 @@ public class S3FileHandlerTest {
             amazonS3.createBucket(BUCKET_NAME);
             amazonS3.putObject(BUCKET_NAME, "_unittest/forListFiles/dummyfile.txt", "dummy");
             amazonS3.putObject(BUCKET_NAME, "_unittest/forListFiles/testfile", "dummy");
-            amazonS3.putObject(BUCKET_NAME, "_unittest/forListFiles/テストファイル.CSV", "dummy");
+            amazonS3.putObject(BUCKET_NAME, "_unittest/forListFiles/testfile.csv", "dummy");
 
             needToInitializeS3 = false;
         }
@@ -90,7 +90,7 @@ public class S3FileHandlerTest {
                 .hasSize(3)
                 .contains("_unittest/forListFiles/dummyfile.txt")
                 .contains("_unittest/forListFiles/testfile")
-                .contains("_unittest/forListFiles/テストファイル.CSV");
+                .contains("_unittest/forListFiles/testfile.csv");
     }
 
     @Test
@@ -111,14 +111,14 @@ public class S3FileHandlerTest {
     @Tag("S3Test")
     public void testCopyFileAndDeleteFile() {
         Resource[] files = handler.listFilesInFolder(BUCKET_NAME, "_unittest/forListFiles", "*");
-        Arrays.stream(files).filter(r -> r.getFilename().equals("_unittest/forListFiles/テストファイル.CSV"))
+        Arrays.stream(files).filter(r -> r.getFilename().equals("_unittest/forListFiles/testfile.csv"))
                 .forEach(r -> {
-                    handler.copyFile(BUCKET_NAME, "_unittest/forListFiles/テストファイル.CSV",
-                            BUCKET_NAME, "_unittest/forCopyAndDelete/コピー_テストファイル.CSV");
+                    handler.copyFile(BUCKET_NAME, "_unittest/forListFiles/testfile.csv",
+                            BUCKET_NAME, "_unittest/forCopyAndDelete/copy_testfile.csv");
                     Resource[] copies = handler.listFilesInFolder(BUCKET_NAME, "_unittest/forCopyAndDelete", "*");
                     assertThat(copies).extracting(Resource::getFilename)
-                            .contains("_unittest/forCopyAndDelete/コピー_テストファイル.CSV");
-                    handler.deleteFile(BUCKET_NAME, "_unittest/forCopyAndDelete/コピー_テストファイル.CSV");
+                            .contains("_unittest/forCopyAndDelete/copy_testfile.csv");
+                    handler.deleteFile(BUCKET_NAME, "_unittest/forCopyAndDelete/copy_testfile.csv");
                 });
     }
 

@@ -1,10 +1,10 @@
 FROM amazoncorretto:11
-LABEL maintainer="k8sbook"
+LABEL maintainer="k8s-aws-book"
 
-RUN yum install -y glibc-langpack-ja
-ENV LANG ja_JP.UTF8
-ENV LC_ALL ja_JP.UTF8
-RUN ln -sf /usr/share/zoneinfo/Japan /etc/localtime
+RUN yum install -y glibc-langpack-ko
+ENV LANG ko_KR.UTF8
+ENV LC_ALL ko_KR.UTF8
+RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
 VOLUME /tmp
 ARG JAR_FILE

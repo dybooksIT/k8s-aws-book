@@ -16,7 +16,7 @@ phases:
       - pip install awscli --upgrade
 
       # Install kubectl 
-      # - export KUBECTL_VERSION=1.14.0
+      # - export KUBECTL_VERSION=1.19.6
       - wget https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
       - chmod 755 kubectl 
       - mv kubectl /usr/local/bin/

@@ -47,7 +47,7 @@ public class BatchApplicationTest {
     private AmazonS3 amazonS3;
 
     /**
-     * バッチアプリケーションの初期化時には、処理（BatchApplication#run）が動かないようにする。
+     * 배치 애플리케이션을 초기화할 때는 처리(Batch Application#run)가 고정되도록 한다.
      */
     @BeforeAll
     public static void prepareBatchNotToRun() {
@@ -70,7 +70,7 @@ public class BatchApplicationTest {
     }
 
     /**
-     * テスト時にはバッチアプリケーションの処理（BatchApplication#run）が動くようにする。
+     * 테스트할 때 배치 애플리케이션 처리(Batch Application#run)가 고정되도록 한다.
      */
     @BeforeEach
     public void prepareBatchToRun() {
@@ -121,17 +121,17 @@ public class BatchApplicationTest {
                 deleteAllFrom("region"),
                 insertInto("region")
                         .columns("region_id", "region_name", "creation_timestamp")
-                        .values(1, "地域1", LocalDateTime.now())
-                        .values(2, "地域2", LocalDateTime.now())
-                        .values(3, "地域3", LocalDateTime.now())
-                        .values(4, "地域4", LocalDateTime.now())
+                        .values(1, "지역 1", LocalDateTime.now())
+                        .values(2, "지역 2", LocalDateTime.now())
+                        .values(3, "지역 3", LocalDateTime.now())
+                        .values(4, "지역 4", LocalDateTime.now())
                         .build(),
                 insertInto("location")
                         .columns("location_id", "location_name", "region_id", "note")
-                        .values(1, "地点1", 1, "地点1の詳細です。")
-                        .values(2, "地点2", 1, "地点2の詳細です。")
-                        .values(3, "地点3", 1, "地点3の詳細です。")
-                        .values(4, "地点4", 1, "地点4の詳細です。")
+                        .values(1, "명소 1", 1, "명소 1의 상세 정보입니다.")
+                        .values(2, "명소 2", 1, "명소 2의 상세 정보입니다.")
+                        .values(3, "명소 3", 1, "명소 3의 상세 정보입니다.")
+                        .values(4, "명소 4", 1, "명소 4의 상세 정보입니다.")
                         .build()
         );
         var dbSetup = new DbSetup(new DataSourceDestination(dataSource), operations);

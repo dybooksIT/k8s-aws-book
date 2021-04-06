@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 /**
- * AmazonS3クラスをBean登録するためのクラス。
+ * Amazon S3 클래스를 Bean에 등록하기 위한 클래스
  */
 @Configuration
 @Profile("!test")

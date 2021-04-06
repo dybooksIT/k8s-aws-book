@@ -33,8 +33,8 @@ public class LocationServiceTest {
     @Tag("DBRequired")
     public void testRegisterLocations() {
         var locationList = List.of(
-                new Location("地点5", new Region(1, "地域1", LocalDateTime.now()), "地点5の詳細です。"),
-                new Location("地点6", new Region(1, "地域1", LocalDateTime.now()), "地点6の詳細です。")
+                new Location("명소 5", new Region(1, "지역 1", LocalDateTime.now()), "명소 5의 상세 정보입니다."),
+                new Location("명소 6", new Region(1, "지역 1", LocalDateTime.now()), "명소 6의 상세 정보입니다.")
         );
         service.registerLocations(locationList);
 
@@ -49,17 +49,17 @@ public class LocationServiceTest {
                 deleteAllFrom("region"),
                 insertInto("region")
                         .columns("region_id", "region_name", "creation_timestamp")
-                        .values(1, "地域1", LocalDateTime.now())
-                        .values(2, "地域2", LocalDateTime.now())
-                        .values(3, "地域3", LocalDateTime.now())
-                        .values(4, "地域4", LocalDateTime.now())
+                        .values(1, "지역 1", LocalDateTime.now())
+                        .values(2, "지역 2", LocalDateTime.now())
+                        .values(3, "지역 3", LocalDateTime.now())
+                        .values(4, "지역 4", LocalDateTime.now())
                         .build(),
                 insertInto("location")
                         .columns("location_id", "location_name", "region_id", "note")
-                        .values(1, "地点1", 1, "地点1の詳細です。")
-                        .values(2, "地点2", 1, "地点2の詳細です。")
-                        .values(3, "地点3", 1, "地点3の詳細です。")
-                        .values(4, "地点4", 1, "地点4の詳細です。")
+                        .values(1, "명소 1", 1, "명소 1의 상세 정보입니다.")
+                        .values(2, "명소 2", 1, "명소 2의 상세 정보입니다.")
+                        .values(3, "명소 3", 1, "명소 3의 상세 정보입니다.")
+                        .values(4, "명소 4", 1, "명소 4의 상세 정보입니다.")
                         .build()
         );
         var dbSetup = new DbSetup(new DataSourceDestination(dataSource), operations);

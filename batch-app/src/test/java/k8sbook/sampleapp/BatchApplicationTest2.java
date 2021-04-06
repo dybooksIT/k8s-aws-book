@@ -52,7 +52,7 @@ public class BatchApplicationTest2 {
     private AmazonS3 amazonS3;
 
     /**
-     * バッチアプリケーションの初期化時には、処理（BatchApplication#run）が動かないようにする。
+     * 배치 애플리케이션을 초기화할 때는 처리(Batch Application#run)가 고정되도록 한다.
      */
     @BeforeAll
     public static void prepareBatchNotToRun() {
@@ -128,7 +128,7 @@ public class BatchApplicationTest2 {
     }
 
     /**
-     * テスト時にはバッチアプリケーションの処理（BatchApplication#run）が動くようにする。
+     * 테스트할 때 배치 애플리케이션 처리(Batch Application#run)가 고정되도록 한다.
      */
     @BeforeEach
     public void prepareBatchToRun() {
@@ -223,7 +223,7 @@ public class BatchApplicationTest2 {
                 deleteAllFrom("region"),
                 insertInto("region")
                         .columns("region_id", "region_name", "creation_timestamp")
-                        .values(1, "地域1", LocalDateTime.now())
+                        .values(1, "지역 1", LocalDateTime.now())
                         .build()
         );
         var dbSetup = new DbSetup(new DataSourceDestination(dataSource), operations);

@@ -9,7 +9,7 @@
       sm8
       md6
     >
-      <div class="display-2 font-weight-black">全国観光スポット情報 ＞ {{$store.state.currentRegion.regionName}}</div>
+      <div class="display-2 font-weight-black">전국 관광지 명소 정보 ＞ {{$store.state.currentRegion.regionName}}</div>
       <div
               v-for="location in $store.state.locations"
               :key="location.locationId">
@@ -17,7 +17,7 @@
         <div class="body-2 location-text">{{location.note}}</div>
       </div>
       <div>
-        <nuxt-link to="/">トップページに戻る</nuxt-link>
+        <nuxt-link to="/">Back to Top Page</nuxt-link>
       </div>
     </v-flex>
   </v-layout>
