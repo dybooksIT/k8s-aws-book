@@ -29,10 +29,10 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-          - Id: S3Origin
-            DomainName: !GetAtt ContentsBucket.DomainName
-            CustomOriginConfig:
-              OriginProtocolPolicy: match-viewer
+        - Id: S3Origin
+          DomainName: !GetAtt ContentsBucket.DomainName
+          CustomOriginConfig:
+            OriginProtocolPolicy: match-viewer
         Enabled: true
         DefaultRootObject: index.html
         Comment: !Ref AWS::StackName

@@ -9,7 +9,11 @@ version = '0.5.1'
 sourceCompatibility = '11'
 
 repositories {
+    jcenter()
     mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2"
+    }
 }
 
 dependencies {
