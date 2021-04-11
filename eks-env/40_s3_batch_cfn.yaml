@@ -41,22 +41,20 @@ Resources:
       Bucket: !Ref BatchBucket
       PolicyDocument:
         Statement:
-          -
-            Action:
-              - s3:GetObject
-              - s3:DeleteObject
-              - s3:PutObject
-            Effect: Allow
-            Principal:
-              AWS: !GetAtt BatchUser.Arn
-            Resource: !Join ["", [!GetAtt BatchBucket.Arn, "/*"]]
-          -
-            Action:
-              - s3:ListBucket
-            Effect: Allow
-            Principal:
-              AWS: !GetAtt BatchUser.Arn
-            Resource: !GetAtt BatchBucket.Arn
+        - Action:
+          - s3:GetObject
+          - s3:DeleteObject
+          - s3:PutObject
+          Effect: Allow
+          Principal:
+            AWS: !GetAtt BatchUser.Arn
+          Resource: !Join ["", [!GetAtt BatchBucket.Arn, "/*"]]
+        - Action:
+          - s3:ListBucket
+          Effect: Allow
+          Principal:
+            AWS: !GetAtt BatchUser.Arn
+          Resource: !GetAtt BatchBucket.Arn
 
   BatchUserAccessKeyParameter:
     Type: AWS::SSM::Parameter
