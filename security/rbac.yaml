@@ -8,23 +8,22 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rbac-test-role
 rules:
-  # 허가할 작업을 설정
-  - apiGroups: ["extensions", "apps", ""]
-    resources: ["pods","pods/log","deployments","replicasets","services"]
-    verbs: ["get", "watch", "list"]
+# 허가할 조작 설정
+- apiGroups: ["extensions", "apps", ""]
+  resources: ["pods","pods/log","deployments","replicasets","services"]
+  verbs: ["get", "watch", "list"]
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: rbac-test-role-binding
-  # 해당 Namespace만 작업을 허가
+  # 대상 네임스페이스에만 조작 허가
   namespace: rbac-test-ns
 roleRef:
   kind: ClusterRole
-  name: rbac-test-role  # ClusterRole 이름을 지정
+  name: rbac-test-role  # 클러스터롤 이름 설정
   apiGroup: rbac.authorization.k8s.io
 subjects:
-  - kind: Group
-    name: rbac-test-group  # 허가할 Group을 지정
-    apiGroup: rbac.authorization.k8s.io
-
+- kind: Group
+  name: rbac-test-group  # 허가할 그룹 설정
+  apiGroup: rbac.authorization.k8s.io
