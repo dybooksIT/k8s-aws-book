@@ -1,14 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
+  # 적용 대상 네임스페이스 설정
   name: network-policy-for-servicea
 spec:
   podSelector:
     matchLabels:
+    # 적용 대상 파드 레이블 설정
       app: ServiceA
   policyTypes:
   - Ingress
   ingress:
+  # 수신 규칙 설정
   - from:
     - podSelector:
         matchLabels:
