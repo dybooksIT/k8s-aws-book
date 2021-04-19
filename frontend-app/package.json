@@ -18,13 +18,13 @@
     "vuex-persistedstate": "^2.7.1"
   },
   "devDependencies": {
-    "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
     "@vue/test-utils": "^1.0.0-beta.32",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
-    "vue-jest": "^3.0.5",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue-jest": "^3.0.5"
   }
 }

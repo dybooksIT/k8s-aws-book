@@ -33,7 +33,7 @@ Parameters:
   Branch:
     Type: String
     Description: CodeCommit branch name to execte pipeline.
-    Default: master
+    Default: main
 
   # CICD 체험을 위해 사용하는 ECT 레지스트리
   ECRNameForSampleAP:
@@ -379,8 +379,3 @@ Outputs:
   YourCodeBuildServiceRoleArn:
     Value: !GetAtt CodeBuildServiceRole.Arn
     Description: Set this string to your EKS Cluster's RBAC.
-  
-
-  
-
-
