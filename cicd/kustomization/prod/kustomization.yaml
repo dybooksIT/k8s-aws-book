@@ -6,5 +6,5 @@ bases:
 
 images:
   - name: backend-app-image  # 여기는 바꾸지 않음
-    newTag: 1.0.1  # 애플리케이션 버전 번호
-    newName: 071213843012.dkr.ecr.ap-northeast-2.amazonaws.com/k8sbook/backend-app # ECR 레지스트리 URI
+    newTag: x.x.x  # 애플리케이션 버전 번호
+    newName: <Your_registry_URI> # ECR 레지스트리 URI

@@ -14,7 +14,7 @@ public class RegionDto {
 
     public RegionDto(Region region) {
         this.regionId = region.getRegionId();
-        this.regionName = "*" + region.getRegionName();
+        this.regionName = region.getRegionName();
     }
 
     public Integer getRegionId() {
