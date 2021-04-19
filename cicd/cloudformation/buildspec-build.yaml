@@ -9,7 +9,7 @@ phases:
   pre_build:
     commands:
       # Install AWS CLI
-      - apt-get update
+      # - apt-get update
       - apt install -y wget python
       - wget https://bootstrap.pypa.io/get-pip.py
       - python get-pip.py

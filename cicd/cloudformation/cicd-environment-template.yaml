@@ -266,7 +266,7 @@ Resources:
       Source:
         Type: CODEPIPELINE
         BuildSpec: cicd/cloudformation/buildspec-build.yaml
-      TimeoutInMinutes: 5
+      TimeoutInMinutes: 15
 
   # Code Build Project.
   CodeBuildProjectApplyToEKS:
@@ -299,7 +299,7 @@ Resources:
       Source:
         Type: CODEPIPELINE
         BuildSpec: cicd/cloudformation/buildspec-apply.yaml
-      TimeoutInMinutes: 5
+      TimeoutInMinutes: 15
 
   # Main process of Code Pipeline.
   ProjectPipeline:
